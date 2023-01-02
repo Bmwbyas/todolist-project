@@ -2,11 +2,12 @@ import {
     changeAntityStatusTask,
 
     tasksReducer,
-    RootTasksStateType, fetchTask, removeTaskTC, addedTask, updateTask
+    RootTasksStateType
 } from './tasks-reducer';
 
 import {addTodolistAC, removeTodolistAC, setTodolists} from './todolists-reducer';
 import {TaskStatuses} from "../../api/todolist-api";
+import {addedTask, fetchTask, removeTaskTC, updateTask} from "./tasks-actions";
 
 let startState: RootTasksStateType = {};
 beforeEach(() => {

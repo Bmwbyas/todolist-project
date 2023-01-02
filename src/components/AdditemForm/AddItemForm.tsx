@@ -1,9 +1,9 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import {Box, Button, FormControl, IconButton, TextField} from '@material-ui/core';
+import {IconButton, TextField} from '@material-ui/core';
 import {AddBox} from '@material-ui/icons';
 
 type AddItemFormPropsType = {
-    addItem: (title: string) => void
+    addItem: (param:{title: string}) => void
     disabled?:boolean
 }
 
@@ -14,7 +14,7 @@ export const AddItemForm = React.memo( (props: AddItemFormPropsType) => {
 
     const addItem = () => {
         if (title.trim() !== "") {
-            props.addItem(title);
+            props.addItem({title});
             setTitle("");
         } else {
             setError("Title is required");
@@ -29,7 +29,7 @@ export const AddItemForm = React.memo( (props: AddItemFormPropsType) => {
         if (error !== null) {
             setError(null);
         }
-        if (e.charCode === 13) {
+        if (e.key === 'Enter') {
             addItem();
         }
     }
@@ -40,7 +40,7 @@ export const AddItemForm = React.memo( (props: AddItemFormPropsType) => {
                    error={!!error}
                    value={title}
                    onChange={onChangeHandler}
-                   onKeyPress={onKeyPressHandler}
+                   onKeyDown={onKeyPressHandler}
                    label="Title"
                    helperText={error}
         />

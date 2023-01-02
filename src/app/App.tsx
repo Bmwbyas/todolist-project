@@ -6,9 +6,12 @@ import {TodolistsList} from "../features/TodolistsList/TodolistsList";
 import {CircularProgress, LinearProgress} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "./hooks";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
-import {Login} from '../features/Login/Login';
-import {Route, Routes, Navigate} from 'react-router-dom';
-import {initializeAppTC, logOutAuth} from "../features/Login/auth-reducer";
+import {Login} from '../features/Auth/Login';
+import {Navigate, Route, Routes} from 'react-router-dom';
+import {initializeAppTC, logOutAuth} from '../features/Auth/auth-reducer';
+import {authSelectors} from '../features/Auth';
+import {appSelectors} from "./index";
+
 
 type PropsType = {
     demo?: boolean
@@ -16,9 +19,9 @@ type PropsType = {
 
 function App({demo = false}: PropsType) {
     console.log("App is called")
-    const status = useAppSelector(state => state.app.status)
-    const isInitialized = useAppSelector(state => state.app.isInitialized)
-    const isLoggedIn = useAppSelector(state => state.auth.isLoggedIn)
+    const status = useAppSelector(appSelectors.selectStatus)
+    const isInitialized = useAppSelector(appSelectors.selectisInitialized)
+    const isLoggedIn = useAppSelector(authSelectors.selectIsLoggedIn)
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(initializeAppTC())

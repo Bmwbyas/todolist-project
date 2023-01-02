@@ -1,11 +1,15 @@
 import {
-    addTodolistAC, changeTitleTodolistTC, changeTodolistEntityStatus,
-    changeTodolistFilterAC, fetchTodolist, FilterValuesType,
-    removeTodolistAC, setTodolists, TodolistDomainType,
+    addTodolistAC,
+    changeTodolistEntityStatus,
+    changeTodolistFilterAC,
+    FilterValuesType,
+    removeTodolistAC,
+    setTodolists,
+    TodolistDomainType,
     todolistsReducer
 } from './todolists-reducer';
 import {v1} from 'uuid';
-
+import {changeTitleTodolistTC} from "./todolist-actions";
 
 
 let todolistId1: string;

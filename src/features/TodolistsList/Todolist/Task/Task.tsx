@@ -10,20 +10,20 @@ import {TasksStateType} from "../../tasks-reducer";
 type TaskPropsType = {
     changeTaskStatus: (id: string, status: TaskStatuses, todolistId: string) => void
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
-    removeTask: (taskId: string, todolistId: string) => void
+    removeTask: (params:{taskId: string, todolistId: string}) => void
     task: TasksStateType
     todolistId: string
 }
 export const Task = React.memo((props: TaskPropsType) => {
 
-    const onClickHandler = () => props.removeTask(props.task.id, props.todolistId)
+    const onClickHandler = () => props.removeTask({taskId:props.task.id, todolistId:props.todolistId})
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         let newIsDoneValue = e.currentTarget.checked
         props.changeTaskStatus(props.task.id, newIsDoneValue?TaskStatuses.Completed:TaskStatuses.New, props.todolistId)
     }
     const onTitleChangeHandler = useCallback((newValue: string) => {
         props.changeTaskTitle(props.task.id, newValue, props.todolistId)
-    }, [props.task.id, props.changeTaskTitle, props.todolistId]);
+    }, [props.changeTaskTitle,props.task.id, props.changeTaskTitle, props.todolistId]);
 
 
     return <div key={props.task.id} className={props.task.status===TaskStatuses.Completed ? 'is-done' : ''}>
