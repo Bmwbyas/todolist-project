@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import './App.css';
 import {AppBar, Button, Container, IconButton, Toolbar, Typography} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
-import {TodolistsList} from "../features/TodolistsList/TodolistsList";
+
 import {CircularProgress, LinearProgress} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "./hooks";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
@@ -11,6 +11,7 @@ import {Navigate, Route, Routes} from 'react-router-dom';
 import {initializeAppTC, logOutAuth} from '../features/Auth/auth-reducer';
 import {authSelectors} from '../features/Auth';
 import {appSelectors} from "./index";
+import {TodolistsList} from "../features/TodolistsList";
 
 
 type PropsType = {
