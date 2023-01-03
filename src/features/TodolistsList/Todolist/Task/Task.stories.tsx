@@ -4,6 +4,7 @@ import {Task} from "./Task";
 import {action} from "@storybook/addon-actions";
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 import {TaskStatuses} from "../../../../api/todolist-api";
+import {ReduxStoreProviderDecorator} from "../../../../ReduxStoreProviderDecorator";
 
 
 export default {
@@ -13,6 +14,7 @@ export default {
     */
     title: 'Todolist/Task',
     component: Task,
+    decorators:[ReduxStoreProviderDecorator],
     argTypes:{
 
 
@@ -32,9 +34,7 @@ TaskStories.args = {
         priority: 0,startDate: new Date(),deadline: new Date(),
         todoListId: "todolistId1",order: 0,addedDate:' ' ,entityStatus:'idle'},
     todolistId: 'string',
-    changeTaskStatus: action('changeTaskStatus') ,
-    changeTaskTitle: action('changeTaskTitle'),
-    removeTask: action('removeTask'),
+
 
 };
 

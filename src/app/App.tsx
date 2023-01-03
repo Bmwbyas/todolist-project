@@ -6,12 +6,13 @@ import {Menu} from '@material-ui/icons';
 import {CircularProgress, LinearProgress} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "./hooks";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
-import {Login} from '../features/Auth/Login';
+import {authActions, Login} from '../features/Auth';
 import {Navigate, Route, Routes} from 'react-router-dom';
-import {initializeAppTC, logOutAuth} from '../features/Auth/auth-reducer';
 import {authSelectors} from '../features/Auth';
 import {appSelectors} from "./index";
 import {TodolistsList} from "../features/TodolistsList";
+
+import {useActions} from "./store";
 
 
 type PropsType = {
@@ -23,12 +24,14 @@ function App({demo = false}: PropsType) {
     const status = useAppSelector(appSelectors.selectStatus)
     const isInitialized = useAppSelector(appSelectors.selectisInitialized)
     const isLoggedIn = useAppSelector(authSelectors.selectIsLoggedIn)
-    const dispatch = useAppDispatch()
+
+    const {logOutAuth,initializeAppTC}=useActions(authActions)
+
     useEffect(() => {
-        dispatch(initializeAppTC())
+        initializeAppTC()
     }, [])
     const logOutHandler=()=>{
-        dispatch(logOutAuth())
+        logOutAuth()
     }
     if (!isInitialized) {
         return <div
