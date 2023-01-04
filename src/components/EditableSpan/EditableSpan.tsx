@@ -1,7 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
 import {TextField} from '@material-ui/core';
-import {useAppSelector} from "../../app/hooks";
-import {RequestStatusType} from "../../app/app-reducer";
 
 type EditableSpanPropsType = {
     value: string

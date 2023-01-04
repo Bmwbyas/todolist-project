@@ -1,18 +1,17 @@
 import React, {useEffect} from 'react'
 import './App.css';
-import {AppBar, Button, Container, IconButton, Toolbar, Typography} from '@material-ui/core';
+import {AppBar, Button, IconButton, Toolbar, Typography} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
 
 import {CircularProgress, LinearProgress} from "@mui/material";
-import {useAppDispatch, useAppSelector} from "./hooks";
+import {useAppSelector} from "./hooks";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
-import {authActions, Login} from '../features/Auth';
+import {authActions, authSelectors, Login} from '../features/Auth';
 import {Navigate, Route, Routes} from 'react-router-dom';
-import {authSelectors} from '../features/Auth';
 import {appSelectors} from "./index";
 import {TodolistsList} from "../features/TodolistsList";
 
-import {useActions} from "./store";
+import {useActions} from "../utils/redux-utils";
 
 
 type PropsType = {
@@ -55,14 +54,14 @@ function App({demo = false}: PropsType) {
                 {status === 'loading' && <LinearProgress color="secondary"/>}
             </AppBar>
             <ErrorSnackbar/>
-            <Container fixed>
+
                 <Routes>
                     <Route path='/' element={<TodolistsList/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/404' element={<h1>PAGE NOT FOUND</h1>}/>
                     <Route path='*' element={<Navigate to='/404'/>}/>
                 </Routes>
-            </Container>
+
         </div>
     );
 }

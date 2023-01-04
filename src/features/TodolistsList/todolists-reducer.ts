@@ -1,7 +1,7 @@
-import {TodolistsAPIType} from "../../api/todolist-api";
-import {RequestStatusType} from "../../app/app-reducer";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {changeTitleTodolistTC} from "./todolist-actions";
+import {TodolistsAPIType} from "../../api/types";
+import {RequestStatusType} from "../../app/appTypes";
 
 
 const initialState: Array<TodolistDomainType> = []

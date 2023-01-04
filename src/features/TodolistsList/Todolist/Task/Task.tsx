@@ -5,8 +5,8 @@ import {Delete} from '@material-ui/icons'
 
 import {TaskStatuses} from "../../../../api/todolist-api";
 import {TasksStateType} from "../../tasks-reducer";
-import {useActions} from "../../../../app/store";
 import {tasksActions} from "../../index";
+import {useActions} from "../../../../utils/redux-utils";
 
 
 

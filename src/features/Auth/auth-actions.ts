@@ -1,10 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {appSetInitialized, appSetStatus} from "../../app/app-reducer";
-import {authAPI, LoginAuthDataType} from "../../api/todolist-api";
+import {authAPI} from "../../api/todolist-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {setTodolists} from "../TodolistsList/todolists-reducer";
 import {clearTaskAC} from "../TodolistsList/tasks-reducer";
 import {setIsLoggedIn} from "./auth-reducer";
+import {LoginAuthDataType} from "../../api/types";
 
 export const loginAuth = createAsyncThunk<{ isLoggedIn: boolean },
     LoginAuthDataType, {

@@ -1,5 +1,5 @@
 import {appSetError, appSetStatus} from "../app/app-reducer";
-import {ResponseApiType} from "../api/todolist-api";
+import {ResponseApiType} from "../api/types";
 
 
 export const handleServerNetworkError = (dispatch: any, error: { message: string }) => {

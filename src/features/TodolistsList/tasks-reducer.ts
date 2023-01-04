@@ -1,8 +1,8 @@
-import {TaskAPIType} from "../../api/todolist-api";
-import {RequestStatusType} from "../../app/app-reducer";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {addTodolistAC, removeTodolistAC, setTodolists} from "./todolists-reducer";
 import {addedTask, fetchTask, removeTaskTC, updateTask} from "./tasks-actions";
+import {TaskAPIType} from "../../api/types";
+import {RequestStatusType} from "../../app/appTypes";
 
 const initialState: RootTasksStateType = {}
 

@@ -1,5 +1,5 @@
 import {appReducer, appSetError, appSetStatus} from "./app-reducer";
-import {AppInitialStateType} from "./app-reducer";
+import {AppInitialStateType} from "./appTypes";
 
 let startState: AppInitialStateType ;
 

@@ -1,4 +1,4 @@
-//thunk
+
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {appSetStatus} from "../../app/app-reducer";
 import {TaskPriorities, TaskStatuses, todolistAPI} from "../../api/todolist-api";
@@ -43,22 +43,7 @@ export const removeTaskTC = createAsyncThunk('tasks/removeTask', async (params: 
     }
 
 })
-// export const removeTaskTCs = (taskId: string, todolistId: string): AppThunk => (dispatch) => {
-//     dispatch(appSetStatus({status: 'loading'}))
-//     dispatch(changeAntityStatusTask({taskId, todolistId, status: 'loading'}))
-//     todolistAPI.deleteTask(todolistId, taskId)
-//         .then(response => {
-//             if (response.data.resultCode === 0) {
-//                 dispatch(removeTaskAC({taskId, todolistId}))
-//                 dispatch(appSetStatus({status: "succeeded"}))
-//                 dispatch(changeAntityStatusTask({taskId, todolistId, status: 'succeeded'}))
-//             } else {
-//                 handleServerAppError(dispatch, response.data)
-//             }
-//         }).catch((error: AxiosError) => {
-//         handleServerNetworkError(dispatch, error)
-//     })
-// }
+
 export const addedTask = createAsyncThunk('tasks/addedTask', async (params: { title: string, todolistId: string }, {dispatch}) => {
     dispatch(appSetStatus({status: 'loading'}))
 
@@ -74,21 +59,7 @@ export const addedTask = createAsyncThunk('tasks/addedTask', async (params: { ti
         handleServerNetworkError(dispatch, error)
     }
 })
-// export const addedTasks = (title: string, todolistId: string): AppThunk => (dispatch) => {
-//     dispatch(appSetStatus({status: 'loading'}))
-//
-//     todolistAPI.createTask(todolistId, title)
-//         .then(response => {
-//             if (response.data.resultCode === 0) {
-//                 dispatch(addTaskAC({task: response.data.data.item}))
-//                 dispatch(appSetStatus({status: "succeeded"}))
-//             } else {
-//                 handleServerAppError(dispatch, response.data)
-//             }
-//         }).catch((err: AxiosError) => {
-//         handleServerNetworkError(dispatch, err)
-//     })
-// }
+
 type UpdateTaskType = {
     title?: string
     description?: string
@@ -127,5 +98,4 @@ export const updateTask = createAsyncThunk('tasks/updateTask', async (params: { 
     } catch (error: any) {
         handleServerNetworkError(dispatch, error)
     }
-
 })

@@ -8,9 +8,9 @@ import {Task} from './Task/Task'
 import {TaskStatuses} from "../../../api/todolist-api";
 import {FilterValuesType, TodolistDomainType} from "../todolists-reducer";
 import {TasksStateType} from "../tasks-reducer";
-import {useActions} from "../../../app/store";
 import {tasksActions, todosActions} from "../index";
 import {PropTypes} from "@mui/material";
+import {useActions} from "../../../utils/redux-utils";
 
 type PropsType = {
     todolist: TodolistDomainType

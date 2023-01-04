@@ -12,8 +12,7 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {Navigate} from "react-router-dom";
 import {selectIsLoggedIn} from "./selectors";
 import {loginAuth} from "./auth-actions";
-import {useActions} from "../../app/store";
-import {authActions} from "./index";
+
 
 export const Login = () => {
     const dispatch = useAppDispatch()
