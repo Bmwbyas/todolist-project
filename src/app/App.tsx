@@ -24,12 +24,12 @@ function App({demo = false}: PropsType) {
     const isInitialized = useAppSelector(appSelectors.selectisInitialized)
     const isLoggedIn = useAppSelector(authSelectors.selectIsLoggedIn)
 
-    const {logOutAuth,initializeAppTC}=useActions(authActions)
+    const {logOutAuth, initializeAppTC} = useActions(authActions)
 
     useEffect(() => {
         initializeAppTC()
     }, [])
-    const logOutHandler=()=>{
+    const logOutHandler = () => {
         logOutAuth()
     }
     if (!isInitialized) {
@@ -49,18 +49,19 @@ function App({demo = false}: PropsType) {
                     <Typography variant="h6">
                         News
                     </Typography>
-                    {isLoggedIn?<Button color="inherit" onClick={logOutHandler}>LogOut</Button>:<Button color="inherit">Login</Button>}
+                    {isLoggedIn ? <Button color="inherit" onClick={logOutHandler}>LogOut</Button> :
+                        <Button color="inherit">Login</Button>}
                 </Toolbar>
                 {status === 'loading' && <LinearProgress color="secondary"/>}
             </AppBar>
             <ErrorSnackbar/>
 
-                <Routes>
-                    <Route path='/' element={<TodolistsList/>}/>
-                    <Route path='/login' element={<Login/>}/>
-                    <Route path='/404' element={<h1>PAGE NOT FOUND</h1>}/>
-                    <Route path='*' element={<Navigate to='/404'/>}/>
-                </Routes>
+            <Routes>
+                <Route path='/' element={<TodolistsList/>}/>
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/404' element={<h1>PAGE NOT FOUND</h1>}/>
+                <Route path='*' element={<Navigate to='/404'/>}/>
+            </Routes>
 
         </div>
     );

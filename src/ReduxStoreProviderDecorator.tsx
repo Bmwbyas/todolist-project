@@ -3,8 +3,8 @@ import {Provider} from 'react-redux'
 import {combineReducers} from 'redux'
 
 import {v1} from 'uuid'
-import {todolistsReducer} from "./features/TodolistsList/todolists-reducer";
-import {tasksReducer} from "./features/TodolistsList/tasks-reducer";
+import {todolistsReducer} from "./features/TodolistsList";
+import {tasksReducer} from "./features/TodolistsList";
 import {TaskPriorities, TaskStatuses} from "./api/todolist-api";
 import {appReducer} from "./app/app-reducer";
 import thunk from "redux-thunk";

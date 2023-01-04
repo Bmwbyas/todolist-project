@@ -33,22 +33,7 @@ export const deleteTodolist = createAsyncThunk('todolists/deleteTodolist', async
         handleServerNetworkError(dispatch, err)
     }
 })
-// export const deleteTodolist_ = (todolistId: string): AppThunk => (dispatch) => {
-//     dispatch(appSetStatus({status: 'loading'}))
-//     dispatch(changeTodolistEntityStatus({todolistId, entityStatus: "loading"}))
-//     todolistAPI.deleteTodolist(todolistId)
-//         .then(response => {
-//             if (response.data.resultCode === 0) {
-//                 dispatch(removeTodolistAC({todolistId}))
-//                 dispatch(appSetStatus({status: "succeeded"}))
-//                 dispatch(changeTodolistEntityStatus({todolistId, entityStatus: "succeeded"}))
-//             } else {
-//                 handleServerAppError(dispatch, response.data)
-//             }
-//         }).catch((error => {
-//         handleServerNetworkError(dispatch, error)
-//     }))
-// }
+
 export const addedTodolist = createAsyncThunk('todolists/addedTodolist', async (params: { title: string }, {dispatch}) => {
     dispatch(appSetStatus({status: 'loading'}))
     try {
@@ -64,20 +49,7 @@ export const addedTodolist = createAsyncThunk('todolists/addedTodolist', async (
         handleServerNetworkError(dispatch, err)
     }
 })
-// export const addedTodolist_ = (title: string): AppThunk => (dispatch) => {
-//         dispatch(appSetStatus({status: 'loading'}))
-//         todolistAPI.createTodolist(title)
-//             .then(response => {
-//                 if (response.data.resultCode === 0) {
-//                     dispatch(addTodolistAC({todolist: response.data.data.item}))
-//                     dispatch(appSetStatus({status: "succeeded"}))
-//                 } else {
-//                     handleServerAppError(dispatch, response.data)
-//                 }
-//             }).catch((error) => {
-//             handleServerNetworkError(dispatch, error)
-//         })
-//     }
+
 export const changeTitleTodolistTC = createAsyncThunk('todolist/changeTitleTodolist', async (params: {
 
     todolistId: string, title: string
